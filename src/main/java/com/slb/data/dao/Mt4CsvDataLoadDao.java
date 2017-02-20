@@ -4,10 +4,13 @@ import com.slb.data.model.Ticks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
+
 @Component
 public class Mt4CsvDataLoadDao implements DataLoadDao {
 
     public Ticks load(int timeframe) {
+        File csvData = new File("/path/to/csv");
         return null;
     }
 }
