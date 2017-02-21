@@ -7,17 +7,19 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 @EqualsAndHashCode
 public abstract class HistoricData {
 
     @Autowired
     private DataLoadDao dataLoadDao = new Mt4CsvDataLoadDao();
     @Getter
-    protected Ticks ticks;
+    protected List<Ticks> ticks;
     @Getter
     protected double pipUnit;
 
-    public HistoricData(String instrumentName, int timeframe) throws Throwable {
+    protected HistoricData(String instrumentName, int timeframe) throws Throwable {
         ticks = dataLoadDao.load(instrumentName, timeframe);
     }
 

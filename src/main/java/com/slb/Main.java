@@ -2,16 +2,10 @@ package com.slb;
 
 import com.slb.backtest.Backtest;
 import com.slb.data.UsdJpy;
-import com.slb.data.dao.DataLoadDao;
-import com.slb.data.dao.Mt4CsvDataLoadDao;
 import com.slb.strategy.MeanReversal1;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeansException;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 

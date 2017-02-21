@@ -1,16 +1,20 @@
 package com.slb.data.model;
 
+import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 
 @Data
+@Builder
 public class Ticks {
 
-    private ArrayList<OffsetDateTime> datetime;
-    private ArrayList<Double> open;
-    private ArrayList<Double> high;
-    private ArrayList<Double> low;
-    private ArrayList<Double> close;
+    private LocalDateTime datetime;
+    private double open;
+    private double high;
+    private double low;
+    private double close;
+    private double volume;
 }
