@@ -6,7 +6,7 @@ import com.slb.strategy.Strategy;
 public class Backtest {
 
     public Backtest(HistoricData data, Strategy strategy){
-
+        data.getTicks();
     }
 
 

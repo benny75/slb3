@@ -4,7 +4,7 @@ import com.slb.data.model.Ticks;
 
 public interface DataLoadDao {
 
-    Ticks load(int timeframe);
+    Ticks load(String insturment, int timeframe) throws Throwable;
 
 
 }
