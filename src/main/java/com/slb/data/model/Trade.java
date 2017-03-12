@@ -1,15 +1,31 @@
 package com.slb.data.model;
 
+import lombok.Builder;
 import lombok.Data;
-import org.apache.commons.lang3.time.FastDateFormat;
+
+import java.time.LocalDateTime;
 
 @Data
+@Builder
 public class Trade {
 
-    private FastDateFormat openDatetime;
+    private int id;
+
+    private int openIndex;
+    private LocalDateTime openDatetime;
     private double openPrice;
+
+    private Position position;
     private int quantity;
-    private FastDateFormat closeDatetime;
+
+    private int closeIndex;
+    private LocalDateTime closeDatetime;
     private double closePrice;
+
+    private double profit;
+
+    public void calculateProfit(double commision){
+        this.profit = (((closePrice - openPrice) * position.getValue()) - commision) * quantity * .01;
+    }
 
 }

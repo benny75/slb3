@@ -17,4 +17,10 @@ public class Ticks {
     private double low;
     private double close;
     private double volume;
+
+    public double[] toDoubleArray(){
+        double[] result = {open, high, low, close, volume};
+        return result;
+    }
+
 }

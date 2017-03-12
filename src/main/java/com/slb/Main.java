@@ -1,8 +1,9 @@
 package com.slb;
 
 import com.slb.backtest.Backtest;
-import com.slb.data.UsdJpy;
-import com.slb.strategy.MeanReversal1;
+import com.slb.data.HistoricData;
+import com.slb.strategy.RandomFxScalper;
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -41,7 +42,8 @@ public class Main {
     public void init(){
 
         try {
-            new Backtest(new UsdJpy(5), new MeanReversal1());
+            HistoricData usdJpy = new HistoricData("USDJPY", 0.01, 60);
+            new Backtest(usdJpy, new RandomFxScalper());
         } catch (Throwable throwable) {
             logger.error("Error occurred", throwable);
         }
