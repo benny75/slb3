@@ -1,5 +1,6 @@
 package com.slb.data.model;
 
+import com.slb.strategy.Strategy;
 import lombok.Builder;
 import lombok.Data;
 
@@ -9,7 +10,7 @@ import java.time.LocalDateTime;
 @Builder
 public class Trade {
 
-    private int id;
+    private Strategy strategy;
 
     private int openIndex;
     private LocalDateTime openDatetime;
@@ -24,8 +25,21 @@ public class Trade {
 
     private double profit;
 
-    public void calculateProfit(double commision){
-        this.profit = (((closePrice - openPrice) * position.getValue()) - commision) * quantity * .01;
+    public void calculateProfit(double commission){
+        this.profit = (((closePrice - openPrice) * position.getValue()) - commission) * quantity * .01;
+    }
+
+    public boolean isOpen() {
+        return closeIndex == 0;
+    }
+
+    /**
+     * Close the trade if necessary
+     */
+    public boolean checkClose() {
+        strategy.checkClose();
+
+        return true;
     }
 
 }

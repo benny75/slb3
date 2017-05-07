@@ -5,6 +5,7 @@ import com.slb.data.HistoricData;
 import com.slb.data.model.Position;
 import com.slb.data.model.Trade;
 import com.slb.indicator.Indicators;
+import com.slb.trade.TradeTable;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -56,12 +57,7 @@ public class RandomFxScalper implements Strategy {
         }
 
         if(openIndex[index] != 0){
-            tradeTable.add(tradeTable.size(), Trade.builder()
-                    .id(tradeTable.size())
-                    .openIndex(index)
-                    .position(Position.getByValue(openIndex[index]))
-                    .quantity(10000)
-                    .build());
+            TradeTable.addTrade(index, Position.getByValue(this.openIndex[index]), 10000);
         }
         return Position.getByValue(openIndex[index]);
     }

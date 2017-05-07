@@ -42,8 +42,8 @@ public class Main {
     public void init(){
 
         try {
-            HistoricData usdJpy = new HistoricData("USDJPY", 0.01, 60);
-            new Backtest(usdJpy, new RandomFxScalper());
+//            HistoricData usdJpy = new HistoricData("USDJPY", 0.01, 60);
+//            new Backtest(usdJpy, new RandomFxScalper());
         } catch (Throwable throwable) {
             logger.error("Error occurred", throwable);
         }
